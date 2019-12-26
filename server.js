@@ -1,9 +1,12 @@
 require('dotenv').config()
 
+const bodyParser = require('body-parser')
+
 const express = require('express')
 const app = express()
 
 app.use(express.static('public'))
+app.use(bodyParser.json())
 
 app.get('/', function(request, response) {
   response.sendFile(__dirname + '/views/index.html')
